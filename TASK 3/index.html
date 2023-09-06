@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      /* CSS Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="number"],
+      input[type="date"],
+      input[type="checkbox"],
+      input[type="radio"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 14px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Form Validation</h2>
+      <form id="myForm" onsubmit="return validateForm()">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <div class="error-message" id="nameError"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <div class="error-message" id="emailError"></div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <div class="error-message" id="passwordError"></div>
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required />
+          <div class="error-message" id="ageError"></div>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="error-message" id="genderError"></div>
+        </div>
+        <div class="form-group">
+          <label>Interests:</label>
+          <input
+            type="checkbox"
+            id="interest1"
+            name="interests"
+            value="sports"
+          />
+          Sports
+          <input
+            type="checkbox"
+            id="interest2"
+            name="interests"
+            value="music"
+          />
+          Music
+          <input
+            type="checkbox"
+            id="interest3"
+            name="interests"
+            value="travel"
+          />
+          Travel
+        </div>
+        <div class="form-group">
+          <label>Education:</label>
+          <input
+            type="radio"
+            id="education1"
+            name="education"
+            value="highschool"
+          />
+          High School
+          <input
+            type="radio"
+            id="education2"
+            name="education"
+            value="college"
+          />
+          College
+          <input
+            type="radio"
+            id="education3"
+            name="education"
+            value="university"
+          />
+          University
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments:</label>
+          <textarea id="comments" name="comments" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function validateForm() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const age = document.getElementById("age").value;
+        const gender = document.getElementById("gender").value;
+
+        const n = document.getElementById("nameError");
+        const e = document.getElementById("emailError");
+        const p = document.getElementById("passwordError");
+        const a = document.getElementById("ageError");
+        const g = document.getElementById("genderError");
+
+        n.textContent = "";
+        e.textContent = "";
+        p.textContent = "";
+        a.textContent = "";
+        g.textContent = "";
+
+        if (name.trim() === "") {
+          n.textContent = "Name is required";
+          return false;
+        }
+
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailPattern.test(email)) {
+          e.textContent = "Invalid email address";
+          return false;
+        }
+
+        if (password.trim() === "") {
+          p.textContent = "Password is required";
+          return false;
+        }
+
+        if (isNaN(age) || age <= 0) {
+          a.textContent = "Age must be a positive number";
+          return false;
+        }
+
+        if (gender === "") {
+          g.textContent = "Please select a gender";
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

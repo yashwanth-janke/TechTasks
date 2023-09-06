@@ -1,0 +1,137 @@
+:root {
+  --blue: #5654b3;
+  --pink: #fa676d;
+  --Dblue: #2d2c62;
+  --grey: #e3f0ff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--grey);
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 2.5% 7%;
+}
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo h3 {
+  color: var(--Dblue);
+  font-size: 25px;
+  font-weight: 600;
+  flex-basis: 35%;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 65%;
+}
+ul {
+  list-style-type: none;
+}
+ul li a {
+  text-decoration: none;
+}
+.navlinks li a {
+  color: #5b5e89;
+  font-size: 13px;
+}
+.navlinks li {
+  margin: auto 30px;
+}
+.navlinks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navlinks2 li a {
+  color: #5b5e89;
+  font-size: 13px;
+}
+.navlinks2 li {
+  margin: auto 15px;
+}
+.navlinks2 {
+  display: flex;
+  justify-content: space-between;
+}
+#getting-started {
+  padding: 10px 25px;
+  background-color: var(--blue);
+  color: var(--grey);
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+#main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3% auto;
+  width: 100%;
+}
+.content {
+  flex-basis: 35%;
+  position: relative;
+    bottom: 50px;
+}
+.content p {
+  color: #969ebc;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+}
+.content h2 {
+  font-size: 43px;
+  font-weight: 600;
+  color: var(--Dblue);
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 16px;
+  line-height: 60px;
+    
+}
+#sm {
+  color: var(--pink);
+}
+#email{
+    border: none;
+    height: 46px;
+    width: 225px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-left: 25px;
+    color: #969ebc;
+}
+#learn{
+    border: none;
+    height: 46px;
+    width: 140px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+   background-color: var(--blue);
+   color: var(--grey);
+
+}
+.image {
+  flex-basis: 65%;
+  width: 100%;
+  position: relative;
+  left: 50px;
+  scale: 1.02;
+}
+.image img {
+  width: 100%;
+}

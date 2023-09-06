@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sound Buttons</title>
+    <style>
+      body {
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #283149;
+      }
+      .set {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        padding: 0.5% 0.5%;
+        font-size: 50px;
+        margin: 10px;
+        color: #da0463;
+        border-color: #3f4b6b;
+        border-width: 30px;
+        width: 125px;
+        box-sizing: border-box;
+        height: 125px;
+      }
+
+      h1 {
+        font-size: 5rem;
+        color: #dbedf3;
+        font-family: "Arvo", cursive;
+        text-shadow: 3px 0 #da0463;
+        padding: 30px;
+        padding-bottom: 120px;
+      }
+
+      footer {
+        color: #dbedf3;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1 id="title">Drum 🥁 Kit</h1></center>
+    <div class="set">
+      <button data-sound="sound1.mp3">W</button>
+      <button data-sound="sound2.mp3">S</button>
+      <button data-sound="sound3.mp3">A</button>
+      <button data-sound="sound4.mp3">D</button>
+      <button data-sound="sound5.mp3">J</button>
+      <button data-sound="sound6.mp3">K</button>
+      <button data-sound="sound6.mp3">L</button>
+    </div>
+    <script>
+      function playSound(soundPath) {
+        const audio = new Audio(soundPath);
+        audio.play();
+      }
+
+      const buttons = document.querySelectorAll("button");
+
+      buttons.forEach((button) => {
+        const soundPath = button.getAttribute("data-sound");
+        button.addEventListener("click", () => playSound(soundPath));
+      });
+
+      document.addEventListener("keydown", (event) => {
+        const key = event.key;
+        switch (key) {
+          case "w":
+            playSound("sound1.mp3");
+            break;
+          case "a":
+            playSound("sound2.mp3");
+            break;
+          case "s":
+            playSound("sound3.mp3");
+            break;
+          case "d":
+            playSound("sound4.mp3");
+            break;
+          case "j":
+            playSound("sound5.mp3");
+            break;
+          case "k":
+            playSound("sound6.mp3");
+          case "l":
+            playSound("sound7.mp3");
+            break;
+          default:
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
